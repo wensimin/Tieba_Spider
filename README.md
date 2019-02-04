@@ -79,6 +79,7 @@ scrapy run 仙剑五外传 -gs -p 5 12 -f thread_filter
 |id         |BIGINT(12) |楼层也有对应ID        |
 |floor      |INT(4)     |楼层编号              |
 |author     |VARCHAR(30)|                      |
+|author_lvl |INT(8)     |用户贴吧等级          |
 |content    |TEXT       |楼层内容              |
 |time       |DATETIME   |发布时间              |
 |comment_num|INT(4)     |楼中楼回复数量        |
