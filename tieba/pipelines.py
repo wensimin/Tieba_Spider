@@ -72,10 +72,10 @@ class TiebaPipeline(object):
         tx.execute(sql, params)     
         
     def insert_post(self, tx, item):
-        sql = "insert into post values(%s, %s, %s, %s, %s, %s, %s) on duplicate key\
+        sql = "insert into post values(%s, %s, %s, %s, %s, %s, %s, %s) on duplicate key\
         update content=values(content), comment_num=values(comment_num)"
         # 楼中楼数量和content(解析方式)可能变化，其余一般不变
-        params = (item["id"], item["floor"], item['author'], item['content'], 
+        params = (item["id"], item["floor"], item['author'], item["author_lvl"], item['content'],
             item['time'], item['comment_num'], item['thread_id'])
         tx.execute(sql, params)
         

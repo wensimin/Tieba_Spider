@@ -21,6 +21,7 @@ class PostItem(scrapy.Item):
     id = scrapy.Field()
     floor = scrapy.Field()
     author = scrapy.Field()
+    author_lvl = scrapy.Field()
     content = scrapy.Field()
     time = scrapy.Field()
     comment_num = scrapy.Field()

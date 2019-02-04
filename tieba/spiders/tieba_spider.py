@@ -45,10 +45,13 @@ class TiebaSpider(scrapy.Spider):
         has_comment = False
         for floor in response.xpath("//div[contains(@class, 'l_post')]"):
             if not helper.is_ad(floor):
+                # 获取楼层用户贴吧等级
+                lvl = int(floor.xpath(".//div[@class='d_badge_lv']/text()").extract_first())
                 data = json.loads(floor.xpath("@data-field").extract_first())
                 item = PostItem()
                 item['id'] = data['content']['post_id']
                 item['author'] = data['author']['user_name']
+                item['author_lvl'] = lvl
                 item['comment_num'] = data['content']['comment_num']
                 if item['comment_num'] > 0:
                     has_comment = True
